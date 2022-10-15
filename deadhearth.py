@@ -1,12 +1,15 @@
 import pygame
 import os
 from pygame import font
-from pygame.locals import( # more to be added as needed
+from pygame.locals import( 
+    # more to be added as needed
+    # also, do we actually need this? w and s are used below and work, even thought they aren't imported here...
     K_UP,
     K_DOWN,
     K_LEFT,
     K_RIGHT,
     K_ESCAPE,
+    K_RETURN,
     KEYDOWN,
     QUIT,
 )
@@ -15,9 +18,9 @@ import colours as c # use c.[colour], right now only very basic colours supporte
 class textItem:
     colour = ''
     content = ''
-    fontObj = None # The pygame font object goes here
-    itself = None # The pygame surface object goes here
-    selected = False
+    fontObj = None # pygame font object goes here
+    itself = None # pygame surface object goes here
+    selected = False # for cases where player is selecting from a set of options
     
     def __init__(self, colour, content, font, fontSize):
         self.colour = colour
@@ -25,21 +28,21 @@ class textItem:
         self.fontObj = pygame.font.Font(font, fontSize)
         self.itself = self.fontObj.render(content, True, colour)
     
-    def select(self):
+    def select(self): # shows player selection in a set of options
         self.itself = self.fontObj.render(('===' + self.content + '==='), True, c.red)
         self.fontObj.bold = True
         self.selected = True
     
-    def unselect(self):
+    def unselect(self): # if player unselects
         self.fontObj.bold = False
         self.selected = False
         self.itself = self.fontObj.render(self.content, True, self.colour)
 
-    def display(self, x, y):
+    def display(self, x, y): # render to screen
         screen.blit(self.itself, (x, y))
     
 
-# let pygame do it's thing
+# let pygame do its thing
 pygame.init()
 
 # prepare the display surface
@@ -61,6 +64,7 @@ clock = pygame.time.Clock()
 titleText = textItem(c.white, 'DEADHEARTH', 'courbd.ttf', 96)
 menuOptions = [textItem(c.white, 'START GAME', 'cour.ttf', 40), textItem(c.white, 'QUIT', 'cour.ttf',40)]  
 menuOptions[0].select()
+
 # loop for the main menu:
 while menu:
     screen.fill(c.black)
@@ -89,13 +93,24 @@ while menu:
                         menuOptions[i].unselect()
                         menuOptions[i - 1].select()
                         break
+
+            # make a menu selection
+            if event.key == pygame.K_SPACE or event.key == K_RETURN:
+                # if start game selected:
+                if menuOptions[0].selected:
+                    running = True
+                    menu = False
+                    break
+
+                if menuOptions[1].selected:
+                    menu = False
+                    break
             
-
-            
-
-
-while running: # if player has not quit game, loop for the main game
+while running: # loop for the main game
     clock.tick(60) # set to 60 fps
+    screen.fill(c.white)
+    test = textItem(c.red, 'Game started!', 'cour.ttf', 90)
+    test.display(200, 200)
     for event in pygame.event.get(): # User did something
         if event.type == pygame.QUIT: # User clicks the X
             running = False

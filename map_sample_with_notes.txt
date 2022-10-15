@@ -1,0 +1,40 @@
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 	@: player (white)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 	M: fire/hearth - plan is for this to quickly alternate between N and M and red/yellow
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 		to look more like fire. Player may heal over time between attacks. 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 	=/ǁ: horizontal / vertical walls
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 	˄: wall corners
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 	∩: doors (ever heard of one?)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 	Y: villagers (blue? helps with building, mans defenses during raids)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 	*: caltrops trap (Grey; slows enemies)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 	x: spike trap (Grey; stuns + damages enemies)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .		֍-₡-֍: catapult (heavy dmg, low accuracy, multiple projectiles; best for groups)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .		∑: miniballista (medium damage, good accuracy; best for early defense help)
+. . . . . . . . . . . . . . . . . . . . . ˄ = ˄ . . . . . . . .
+. . . . . . . . . . . . . . ֍-₡-֍ . . . . ǁ Y ǁ . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . ˄ ∩ ˄ . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . ˄ = = = ˄ . . . . . . . . . . . . . .
+. . . . . . . . . . . . . ǁ . @ . ǁ . . . . . . . . . . . . . .
+. . . . . . . . . . . . . ǁ . M . ǁ . . . . . . . . . . . . . .
+. . . . . . . . . . . . . ǁ . . . ǁ . . . . . . . . . . . . . .
+. . . . . . . . . . . . . ˄ = ∩ = ˄ . . . . . . . . . . . . . .
+. . . . . . . . . . . . . * * x * * . . . . . . . . . . . . . .
+. . . . . . . . . . . . . * * * * * . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+The player starts with only a house for themself. An easy wave spawns, player fights. Over time waves get harder, necessitating better defenses. Player
+builds houses for villagers to live in. Villagers can help build larger projects. The player may heal at their hearth. If a monster reaches the hearth,
+the fire is snuffed, and it is game over. Player has limited time between waves and must choose to heal at the hearth, and building better defenses. They 
+must also decide when to risk building additional houses for villagers; which will take time and add nothign to defense for hte next wave. However, after
+the next wave, a villager comes to live in the house. This villager can make building quicker between rounds and even man defensive turrets. Thus, it is 
+important for the player to balance a good defense and a plan to build for the future, as eventually waves will require manned defenses and better traps
+that take more time to build than is possible with just the player.
