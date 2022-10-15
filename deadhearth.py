@@ -37,7 +37,7 @@ class textItem:
 
     def display(self, x, y):
         screen.blit(self.itself, (x, y))
-    pass
+    
 
 # let pygame do it's thing
 pygame.init()
@@ -71,12 +71,10 @@ while menu:
     for event in pygame.event.get(): # User did something
         if event.type == pygame.QUIT: # User clicks the X
             menu = False
-            running = True
         if event.type == KEYDOWN:
             # quit on escape key
             if event.key == pygame.K_ESCAPE: 
                 menu = False
-                running = True
             # move down the menu
             if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                 for i in range(len(menuOptions)): # maybe make this function a part of textItem class?
@@ -85,7 +83,7 @@ while menu:
                         menuOptions[i + 1].select()
                         break
             # move up the menu
-            if event.key == (pygame.K_UP or pygame.K_w):
+            if event.key == pygame.K_UP or event.key == pygame.K_w:
                 for i in range(len(menuOptions)): # maybe make this function a part of textItem class?
                     if menuOptions[i].selected and i != 0:
                         menuOptions[i].unselect()
