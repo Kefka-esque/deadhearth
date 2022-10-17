@@ -16,6 +16,20 @@ from pygame.locals import(
 
 import colours as c # use c.[colour], right now only very basic colours supported
 
+# for buildings
+class building:
+    
+    def __init__(self, pos, dimensions, name,)__:
+        self.pos = pos # tuple for the x,y coords on the screen
+        self.dimensions = dimensions # tuple for the dimensions of the building ((x, y)) - only square buildings are supported for now.
+        self.name = name #str for the building type
+
+    def choosePlace(self, theMap)
+        selected = theMap[15][15].xpos, theMap[15][15].ypos
+        
+        
+    
+
 # for text
 class textItem:
 	colour = ''
@@ -53,8 +67,13 @@ class tile:
 	
 	def __init__(this, type, ypos, xpos):
 		this.type = type
-		this.x = xpos # these are for the tilemap, it is 32x32 
+        
+        this.x = xpos
 		this.y = ypos
+        # these are for the tilemap, but denotes it's position on the main display surface.
+        # since tilemap size is 32x32, it is initialized as [tile number] * [surface size / 32]
+        # see generateMap() to see what I mean.
+        
 		if type == 'grass':
 			this.symbol = '"'
 			this.colour = c.green
@@ -154,7 +173,7 @@ def generateMap():
 	# generate a 32x32 array of tiles for the map with all grass to start with
 	for i in range(32):
 		for o in range(32):
-			map[i].append(tile('grass', (i * 24), (o * 32)))
+			map[i].append(tile('grass', (i * 24), (o * 32))) # this should be changed so that it will scale with different display resolutions; this will only work properly with 1024x768
 		if i < 31:
 			map.append([])
 	
@@ -263,14 +282,14 @@ clock = pygame.time.Clock()
 
 running = menu() # run the main menu and return a bool for the main loop
 
-map = generateMap()
+theMap = generateMap()
 
 while running: # loop for the main game
 	clock.tick(60) # set to 60 fps
 	screen.fill(c.black)
 	for i in range(32): #display the map
 		for o in range(32):
-			screen.blit(map[i][o].render, (map[i][o].x, map[i][o].y))
+			screen.blit(theMap[i][o].render, (theMap[i][o].x, theMap[i][o].y))
 	pygame.display.flip()
 	for event in pygame.event.get(): # User did something
 		if event.type == pygame.QUIT: # User clicks the X
